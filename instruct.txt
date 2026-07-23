@@ -1,0 +1,53 @@
+Creating a Secure Members Area in Your Library App
+Learning Objective
+Implement a login system and secure members area in your library application using Vue Router and conditional rendering.
+
+Use Vue's Router documentation to successfully implement intermediate-level routing functionality
+
+
+Background
+Not all pages of a website should be publicly accessible. In this activity, you'll create a login page and restrict access to certain parts of your library application to logged-in users only.
+
+Requirements
+Create a login page with username and password fields.
+
+Create an access-denied page to show unauthenticated users.
+
+Implement a simple authentication system (use hardcoded credentials for now).
+
+Restrict access to certain routes (e.g., About page) to authenticated users only.
+
+Redirect unauthenticated users to the login page when they try to access restricted routes.
+
+Show a logout option for authenticated users.
+
+Hints and Guidelines
+1. Login Page
+Create a new view for the login page called LoginView.vue.
+
+Use v-model for two-way binding on input fields.
+
+Implement a method to handle form submission.
+
+2. Authentication
+Validate the user's username/password and store the authentication state (e.g., isAuthenticated) in your app.
+
+Consider using Vue's  ref() for managing this state.
+
+For this exercise, hardcode a username and password for verification.
+
+3. Authenticated users (Successful login)
+if user enters the right credentials, allow them to see the About page
+
+4. Redirecting Unauthenticated Users
+If user is not logged in (check hardcoded credentials), then do not allow them to open the About page.
+
+Hint: check out navigation guards for one way of doing this.
+
+5. Conditional Rendering
+Use v-if and v-else directives to show different content based on authentication status.
+
+Consider creating a navigation component that changes based on whether the user is logged in.
+
+6. Logout Functionality
+Use Vue Router to navigate back to the login page after logout.
