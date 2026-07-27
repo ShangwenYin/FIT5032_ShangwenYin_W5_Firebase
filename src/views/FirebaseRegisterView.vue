@@ -2,29 +2,29 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h1 class="text-center">Sign in</h1>
-        <form @submit.prevent="signin">
+        <h1 class="text-center">Create an Account</h1>
+        <form @submit.prevent="register">
           <div class="mb-3">
-            <label for="firebase-email" class="form-label">Email</label>
+            <label for="register-email" class="form-label">Email</label>
             <input
               type="text"
               class="form-control"
-              id="firebase-email"
+              id="register-email"
               v-model="email"
             />
           </div>
           <div class="mb-3">
-            <label for="firebase-password" class="form-label">Password</label>
+            <label for="register-password" class="form-label">Password</label>
             <input
               type="password"
               class="form-control"
-              id="firebase-password"
+              id="register-password"
               v-model="password"
             />
           </div>
           <div v-if="errorMessage" class="text-danger mb-3">{{ errorMessage }}</div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Sign in via Firebase</button>
+            <button type="submit" class="btn btn-primary">Save to Firebase</button>
           </div>
         </form>
       </div>
@@ -34,7 +34,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 
 const email = ref('')
@@ -43,16 +43,15 @@ const errorMessage = ref('')
 const router = useRouter()
 const auth = getAuth()
 
-const signin = () => {
-  signInWithEmailAndPassword(auth, email.value, password.value)
+const register = () => {
+  createUserWithEmailAndPassword(auth, email.value, password.value)
     .then((data) => {
-      console.log('Firebase Login Successful!')
-      router.push('/')
-      console.log(auth.currentUser)
+      console.log('Firebase Register Successful!')
+      router.push('/FireLogin')
     })
     .catch((error) => {
       console.log(error.code)
-      errorMessage.value = 'Login failed. Please check your email and password.'
+      errorMessage.value = 'Registration failed. Please try again.'
     })
 }
 </script>

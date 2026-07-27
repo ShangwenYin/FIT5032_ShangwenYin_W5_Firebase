@@ -5,6 +5,7 @@ import LoginView from '../views/LoginView.vue'
 import AccessDenied from '../views/AccessDenied.vue'
 import { useAuth } from '../composables/useAuth'
 import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
+import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
 
 const routes = [
   {
@@ -27,6 +28,16 @@ const routes = [
     path: '/access-denied',
     name: 'AccessDenied',
     component: AccessDenied
+  },
+  {
+  path:'/FireLogin',
+  name:'FireLogin',
+  component:FirebaseSigninView
+  },
+  {
+  path:'/FireRegister',
+  name:'FireRegister',
+  component:FirebaseRegisterView
   }
 ]
 
@@ -35,11 +46,6 @@ const router = createRouter({
   routes
 })
 
-const routes = [{
-  path:'/FireLogin',
-  name:'FireLogin',
-  component:FirebaseSigninView
-}]
 
 router.beforeEach((to, from, next) => {
   const { isAuthenticated } = useAuth()
