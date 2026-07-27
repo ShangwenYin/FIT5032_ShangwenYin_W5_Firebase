@@ -44,6 +44,9 @@ const handleLogout = () => {
         <li class="nav-item">
           <router-link to="/FireRegister" class="nav-link" active-class="active">Firebase Register</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" active-class="active" to="/addbook">Add Book</router-link>
+        </li>    
       </ul>
     </header>
   </div>

@@ -6,8 +6,14 @@ import AccessDenied from '../views/AccessDenied.vue'
 import { useAuth } from '../composables/useAuth'
 import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
+import AddBookView from '../views/AddBookView.vue'
 
 const routes = [
+  {
+    path: '/addbook',
+    name: 'AddBook',
+    component: AddBookView,
+  },
   {
     path: '/',
     name: 'Home',

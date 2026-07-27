@@ -34,14 +34,14 @@
 
 <script setup>
 import { ref } from 'vue'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'vue-router'
+import { auth } from '../Firebase/init.js'
 
 const email = ref('')
 const password = ref('')
 const errorMessage = ref('')
 const router = useRouter()
-const auth = getAuth()
 
 const signin = () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
