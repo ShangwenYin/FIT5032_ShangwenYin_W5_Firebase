@@ -7,7 +7,8 @@ const error = ref('')
 const isLoading = ref(false)
 
 // 阿里云 FC 云函数 countBooks 的公网访问地址（Web 函数，香港区域）
-const FUNCTION_URL = 'http://countbooks-exbheqqacb.cn-hongkong.fcapp.run/'
+// 用 https：部署站点是 https，浏览器禁止 https 页面请求 http 资源（混合内容）
+const FUNCTION_URL = 'https://countbooks-exbheqqacb.cn-hongkong.fcapp.run/'
 
 const getBookCount = async () => {
   isLoading.value = true
