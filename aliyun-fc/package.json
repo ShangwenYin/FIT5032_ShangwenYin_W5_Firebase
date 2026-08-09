@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-express",
+  "version": "1.0.0",
+  "description": "Aliyun FC Web function countBooks - reads Firestore books count cross-cloud",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase-admin": "^13.3.1"
+  },
+  "private": true
+}
