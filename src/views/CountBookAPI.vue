@@ -1,5 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+// 直接导入 JSON（Vite 打包时内联，部署后路径不失效）
+import authorsData from '../assets/json/authors.json'
 
 const authors = ref([])
 const loading = ref(false)
@@ -19,12 +21,7 @@ const getApiData = async () => {
   loading.value = true
   error.value = null
   try {
-    const response = await fetch('src/assets/json/authors.json')
-    if (!response.ok) {
-      throw new Error('HTTP error! status: ' + response.status)
-    }
-    const data = await response.json()
-    authors.value = data
+    authors.value = authorsData
     calculateStats()
   } catch (err) {
     error.value = 'Error loading authors data: ' + err.message
